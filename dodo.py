@@ -60,17 +60,36 @@ def task_db():
         ]
     )
 
-    # yield dict(
-    #     name="check:migrations",
-    #     doc="Initialize db tablespace",
-    #     actions=[
-    #         # TODO: implement
-    #     ]
-    # )
-    #
-    # yield dict(
-    #     name="db:"
-    # )
+    yield dict(
+        name="db:check:migrations",
+        doc="Initialize db tablespace",
+        actions=[
+            "psql -p 5433 -d flint_dev -f sql/2.0/DDL/create_todo_table_2.0.sql",
+            "psql -p 5433 -d flint_dev -f sql/2.0/DML/insert_todos_2.0.sql"
+        ]
+    )
+
+    yield dict(
+        name="db:grant",
+        doc="Grant permissions",
+        actions=[
+            "psql -p $QUARTZ_PG_PORT -d flint_dev -f sql/01_grant_user_perms.sql"
+        ]
+    )
+
+    yield dict(
+        name="db:teardown",
+        doc="Cleanup",
+        actions=[
+            "pg_ctl stop -D data/pg"
+        ]
+    )
+
+
+# def task_start_db():
+#     yield dict(
+#         name="db:"
+#     )
 
 
 def task_unit_tests():
