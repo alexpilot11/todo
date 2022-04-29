@@ -1,7 +1,11 @@
 .pytest_cache/*
 
-__pycache__/*
+services/server-side/__pycache__/*.pyc
 
 data/*
 
 .doit.*
+
+*.pyc
+
+*.egg-info/

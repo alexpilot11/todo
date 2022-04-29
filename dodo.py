@@ -91,6 +91,18 @@ def task_db():
 #         name="db:"
 #     )
 
+# def task_start_react():
+#     frontend = "frontend"
+#     path = frontend / "package.json"
+#
+#     test_cmd = ["npm start"]
+#     yield dict(
+#         name="react:start",
+#         doc="start react server",
+#         file_dep=[path],
+#         actions=test_cmd
+#     )
+
 
 def task_unit_tests():
 
@@ -104,7 +116,7 @@ def task_unit_tests():
 
 
 def task_server():
-    cmd = ["uvicorn main:app --reload"]
+    cmd = ["uvicorn flint.main:app --reload"]
     yield dict(
         name="server",
         doc="Run server",

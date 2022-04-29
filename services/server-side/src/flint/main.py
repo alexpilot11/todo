@@ -1,16 +1,12 @@
-from fastapi import FastAPI, Request, WebSocket
+from fastapi import FastAPI, WebSocket
 from typing import Optional
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="ui/public")
 
-
-@app.get("/", response_class=HTMLResponse)
-def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
 
 
 @app.get("/items/{item_id}")
@@ -24,3 +20,4 @@ async def websocket_endpoint(websocket: WebSocket):
     while True:
         data = await websocket.receive_text()
         await websocket.send_text(f'Hello {data}')
+
