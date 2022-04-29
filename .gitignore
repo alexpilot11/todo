@@ -1,6 +1,6 @@
 .pytest_cache/*
 
-services/server-side/__pycache__/*.pyc
+__pycache__/*
 
 data/*
 
@@ -9,3 +9,5 @@ data/*
 *.pyc
 
 *.egg-info/
+
+*.pyc
