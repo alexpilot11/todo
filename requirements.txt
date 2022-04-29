@@ -1,6 +1,5 @@
 anyio==3.5.0
 asgiref==3.5.0
-attrs @ file:///home/conda/feedstock_root/build_artifacts/attrs_1640799537051/work
 certifi==2021.10.8
 charset-normalizer==2.0.12
 click==8.1.2
@@ -10,22 +9,16 @@ fastapi==0.75.2
 h11==0.13.0
 httptools==0.4.0
 idna==3.3
-iniconfig @ file:///home/conda/feedstock_root/build_artifacts/iniconfig_1603384189793/work
 Jinja2==3.1.1
 MarkupSafe==2.1.1
-packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1637239678211/work
-pluggy @ file:///home/conda/feedstock_root/build_artifacts/pluggy_1648772597647/work
-py @ file:///home/conda/feedstock_root/build_artifacts/py_1636301881863/work
 pydantic==1.9.0
 pyinotify==0.9.6
-pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1649603503565/work
 pytest==7.1.1
 python-dotenv==0.20.0
 PyYAML==6.0
 requests==2.27.1
 sniffio==1.2.0
 starlette==0.17.1
-tomli @ file:///home/conda/feedstock_root/build_artifacts/tomli_1644342247877/work
 typing_extensions==4.2.0
 urllib3==1.26.9
 uvicorn==0.17.6
