@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient
 from todo.main import app
+from todo.fake_db.items import items
 
 
 client = TestClient(app)
@@ -15,18 +16,15 @@ def test_root():
 
 
 def test_read_items():
-    resp = client.get("/items/1")
-
-    expected = {"item_id": 1, "q": None}
+    resp = client.get("/items")
 
     assert resp.status_code == 200
-    assert resp.json() == expected
+    assert resp.json() == items
 
 
 def test_read_items_query():
-    resp = client.get("items/1?q=hello")
+    resp = client.get("items?q=f")
 
-    expected = {"item_id": 1, "q": "hello"}
-
+    expected = items[:1]
     assert resp.status_code == 200
     assert resp.json() == expected
