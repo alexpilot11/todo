@@ -1,0 +1,1 @@
+When submitting a PR, please remember to adhere to best practices, as well as describe how to run the code. Give an example test procedure for reviewers to follow, detailing any information you believe a reviewer would need to know.
