@@ -1,6 +1,7 @@
-## Install Conda
+## Install Mamba
 
 * bash scripts/install_local_mambaforge.sh
+* source mf/bin/activate
 
 ## Create Conda Environemnt
 
