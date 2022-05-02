@@ -19,7 +19,7 @@
 
 * doit server
 
-Navigate to http://127.0.01:8000/docs to see a
+Navigate to http://127.0.01:8000/docs to see an interactive UI for the API.
 
 
 ## Run unit tests
