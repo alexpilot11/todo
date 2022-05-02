@@ -3,7 +3,7 @@ from fastapi import APIRouter
 router = APIRouter()
 
 
-@router.get("/todos/list")
+@router.get("/todos")
 def todo_list():
     pass
 
@@ -16,4 +16,3 @@ def create_todo():
 @router.put("/todos/update")
 def update_todo():
     pass
-

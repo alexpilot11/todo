@@ -3,7 +3,7 @@ from pathlib import Path
 
 import setuptools
 
-NAME = "fastdemo"
+NAME = "todo"
 HERE = Path(__file__).parent
 
 
@@ -16,7 +16,7 @@ __version__ = re.findall(
 setuptools.setup(
     name=NAME,
     version=__version__,
-    description="a fast api implementation demo",
+    description="a todo application",
     include_package_data=True,
     package_dir={"": "src"},
     packages=setuptools.find_packages("src"),

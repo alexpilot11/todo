@@ -18,6 +18,8 @@
 
 * doit server
 
+Navigate to http://127.0.01:8000/docs to see a
+
 
 ## Run unit tests
 
