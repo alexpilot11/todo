@@ -1,3 +1,6 @@
+## Install Conda
+
+* bash scripts/install_local_mambaforge.sh
 
 ## Create Conda Environemnt
 
@@ -19,3 +22,5 @@
 ## Run unit tests
 
 * doit unit_tests
+
+

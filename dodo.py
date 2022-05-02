@@ -1,10 +1,8 @@
-
-
 # pydoit configuration
 DOIT_CONFIG = {
     "backend": "sqlite3",
     "verbosity": 2,
-    "par_type": "thread"  # avoid trouble with non-linux systems
+    "par_type": "thread",  # avoid trouble with non-linux systems
 }
 
 
@@ -28,62 +26,49 @@ def task_db():
     yield dict(
         name="db:init",
         doc="Initialize db tablespace",
-        actions=[
-            "rm -rf data/pg",
-            "initdb -D data/pg"
-        ]
+        actions=["rm -rf data/pg", "initdb -D data/pg"],
     )
 
     yield dict(
         name="db:start",
         doc="Start the db in a background process",
-        actions=[
-            "pg_ctl -o \"-p 5433\" start -D data/pg"
-        ]
+        actions=['pg_ctl -o "-p 5433" start -D data/pg'],
     )
 
     yield dict(
         name="db:check",
         doc="Check if db is ready to accept connections",
-        actions=[
-            "python -m scripts.check db_ready"
-        ]
+        actions=["python -m scripts.check db_ready"],
     )
 
     yield dict(
         name="db:setup",
         doc="Create dev db",
         actions=[
-            "createdb -E UTF8 -T template0 -p 5433 flint_dev",
-            "createdb -E UTF8 -T template0 -p 5433 flint_test",
-            "psql -p 5433 -d flint_dev -f sql/00_create_databases.sql"
-        ]
+            "createdb -E UTF8 -T template0 -p 5433 fastdemo_dev",
+            "createdb -E UTF8 -T template0 -p 5433 fastdemo_test",
+            "psql -p 5433 -d fastdemo_dev -f sql/00_create_databases.sql",
+        ],
     )
 
     yield dict(
         name="db:check:migrations",
         doc="Initialize db tablespace",
         actions=[
-            "psql -p 5433 -d flint_dev -f sql/2.0/DDL/create_todo_table_2.0.sql",
-            "psql -p 5433 -d flint_dev -f sql/2.0/DML/insert_todos_2.0.sql"
-        ]
+            "psql -p 5433 -d fastdemo_dev -f sql/2.0/DDL/create_todo_table_2.0.sql",
+            "psql -p 5433 -d fastdemo_dev -f sql/2.0/DML/insert_todos_2.0.sql",
+        ],
     )
 
     yield dict(
         name="db:grant",
         doc="Grant permissions",
         actions=[
-            "psql -p $QUARTZ_PG_PORT -d flint_dev -f sql/01_grant_user_perms.sql"
-        ]
+            "psql -p $QUARTZ_PG_PORT -d fastdemo_dev -f sql/01_grant_user_perms.sql"
+        ],
     )
 
-    yield dict(
-        name="db:teardown",
-        doc="Cleanup",
-        actions=[
-            "pg_ctl stop -D data/pg"
-        ]
-    )
+    yield dict(name="db:teardown", doc="Cleanup", actions=["pg_ctl stop -D data/pg"])
 
 
 # def task_start_db():
@@ -116,7 +101,7 @@ def task_unit_tests():
 
 
 def task_server():
-    cmd = ["uvicorn flint.main:app --reload"]
+    cmd = ["uvicorn fastdemo.main:app --reload"]
     yield dict(
         name="server",
         doc="Run server",
@@ -124,6 +109,7 @@ def task_server():
     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doit
+
     doit.run(globals())

@@ -1,4 +1,4 @@
--e services/server-side
+-e services/server-side/
 
 doit==0.35.0
 uvicorn==0.17.6

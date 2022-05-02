@@ -1,13 +1,8 @@
 .pytest_cache/*
-
 __pycache__/*
-
 data/*
-
 .doit.*
-
 *.pyc
-
 *.egg-info/
-
 *.pyc
+mf/

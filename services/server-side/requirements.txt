@@ -1,6 +1,5 @@
 anyio==3.5.0
 asgiref==3.5.0
-attrs @ file:///home/conda/feedstock_root/build_artifacts/attrs_1640799537051/work
 certifi==2021.10.8
 charset-normalizer==2.0.12
 click==8.1.2
